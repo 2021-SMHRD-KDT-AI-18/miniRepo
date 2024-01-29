@@ -10,7 +10,12 @@ public class DTO {
 	private int rankH;
 	private int rankL;
 	
-	
+	public int getRankH() {
+		return rankH;
+	}
+	public int getRankL() {
+		return rankL;
+	}
 	public String getId() {
 		return id;
 	}
@@ -37,11 +42,12 @@ public class DTO {
 		this.question = question;
 		this.answer = answer;
 	}
-	
-	
-	
-	
-	
-	
+	public DTO(String id, String nic, int rankH, int rankL) {
+		super();
+		this.id = id;
+		this.nic = nic;
+		this.rankH = rankH;
+		this.rankL = rankL;
+	}
 	
 }

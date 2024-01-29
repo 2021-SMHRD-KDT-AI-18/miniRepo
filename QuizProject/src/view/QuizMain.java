@@ -17,6 +17,8 @@ public class QuizMain {
    DAO dao = new DAO();
    controller controller = new controller();
    DTO dto = null;
+   int rankH = 0;
+   int scoreL = 0;
 
    while (true) {
      System.out.println("정처기자바");
@@ -75,8 +77,10 @@ public class QuizMain {
             }
             cnt++;
           }
+          scoreL = correct;
+          dto = new DTO(id, info.getNic(), rankH, scoreL);
+          dao.save(dto);
           
-        
           System.out.printf("총 %d문제 중 %d문제를 맞추셨습니다.%n", cnt - 1, correct);
           System.out.println("틀린문제를 다시 푸시겠습니까?");
           System.out.println("1.예 2.종료");
@@ -126,6 +130,10 @@ public class QuizMain {
             }
             cnt++;
           }
+          rankH = correct;
+          dto = new DTO(id,info.getNic(),rankH, scoreL);
+          dao.save(dto);
+          
           System.out.printf("총 %d문제 중 %d문제를 맞추셨습니다.%n", cnt - 1, correct);
           System.out.println("틀린문제를 다시 푸시겠습니까?");
           System.out.println("1.예 2.종료");
@@ -158,6 +166,9 @@ public class QuizMain {
       }
      } else if (a == 3) {
       System.out.println("랭크확인");
+     
+     
+ 
      } else if (a == 4) {
       System.out.println("종료합니다.");
       break;
