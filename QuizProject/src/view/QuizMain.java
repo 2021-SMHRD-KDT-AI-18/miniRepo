@@ -3,19 +3,15 @@ package view;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
-import controller.controller;
-import model.DAO;
+import controller.Controller;
 import model.DTO;
 
 public class QuizMain {
 
 	public static void main(String[] args) {
-
 		Scanner sc = new Scanner(System.in);
 		Random ran = new Random();
-		DAO dao = new DAO();
-		controller controller = new controller();
+		Controller controller = new Controller();
 		DTO dto = null;
 		int rankH = 0;
 		int scoreL = 0;
@@ -55,11 +51,10 @@ public class QuizMain {
 
 						int cnt = 1;
 						int correct = 0;
-
 						ArrayList<DTO> wlist = new ArrayList<DTO>();
 
 						while (cnt <= 10) {
-							ArrayList<DTO> list = dao.QuestionList();
+							ArrayList<DTO> list = controller.getQuestionList();
 							DTO wrongQ = null;
 
 							int num = ran.nextInt(list.size());
@@ -79,7 +74,7 @@ public class QuizMain {
 						}
 						scoreL = correct;
 						dto = new DTO(id, info.getNic(), rankH, scoreL);
-						dao.save(dto);
+						controller.save(dto);
 
 						System.out.printf("총 %d문제 중 %d문제를 맞추셨습니다.%n", cnt - 1, correct);
 						System.out.println("틀린문제를 다시 푸시겠습니까?");
@@ -107,13 +102,12 @@ public class QuizMain {
 					} else if (b == 2) {
 						int cnt = 1;
 						int correct = 0;
-
 						ArrayList<DTO> wlist = new ArrayList<DTO>();
 
 						System.out.println("하드모드 게임을 시작합니다.");
 						// 하드모드 게임 실행
 						while (cnt <= 10) {
-							ArrayList<DTO> list = dao.QuestionList();
+							ArrayList<DTO> list = controller.getQuestionList();
 							DTO wrongQ = null;
 
 							int num = ran.nextInt(list.size());
@@ -132,7 +126,7 @@ public class QuizMain {
 						}
 						rankH = correct;
 						dto = new DTO(id, info.getNic(), rankH, scoreL);
-						dao.save(dto);
+						controller.save(dto);
 
 						System.out.printf("총 %d문제 중 %d문제를 맞추셨습니다.%n", cnt - 1, correct);
 						System.out.println("틀린문제를 다시 푸시겠습니까?");
@@ -160,16 +154,15 @@ public class QuizMain {
 							System.out.println("정확한 숫자를 입력하세요.");
 						}
 					}
-
-				} else if (info == null) {
+				} else {
 					System.out.println("등록되지 않은 회원입니다");
 				}
 			} else if (a == 3) {
 				System.out.print("아이디를 입력해주세요 >>");
 				String id = sc.next();
 				System.out.println("최고점수 확인");
-				// 로그인한 사용자의 최고 점수 출력
-				int totalHighestScore = dao.getUserHighestScores(id);
+
+				int totalHighestScore = controller.getUserHighestScores(id);
 				System.out.println("총 최고 점수 : " + totalHighestScore);
 
 			} else if (a == 4) {
