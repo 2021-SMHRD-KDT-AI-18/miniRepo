@@ -20,7 +20,7 @@ public class DAO {
 	    try {
 	        connection();
 
-	        String sql = "SELECT MAX(SCORE_H) AS MAX_SCORE_H, MAX(SCORE_E) AS MAX_SCORE_E FROM RANK6 WHERE USER_ID=? GROUP BY USER_NIC";
+	        String sql = "SELECT MAX(SCORE_H) AS MAX_SCORE_H, MAX(SCORE_E) AS MAX_SCORE_E FROM RANK WHERE USER_ID=? GROUP BY USER_NIC";
 	        psmt = conn.prepareStatement(sql);
 	        psmt.setString(1, userId);
 	        rs = psmt.executeQuery();
