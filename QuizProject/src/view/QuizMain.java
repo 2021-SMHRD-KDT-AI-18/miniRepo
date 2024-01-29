@@ -15,9 +15,31 @@ public class QuizMain {
 		DTO dto = null;
 		int rankH = 0;
 		int scoreL = 0;
+		
+		
+		String text = "본 프로그램은 정보처리기사시험 학습을 목표로 하여 'BGM'은 일부로 생략하였습니다."
+				+ "    현재 개발 중인 프로그램으로 명령어와 관련된 문제는 소문자로 작성하시고, 이외의 정답은  한글 및 영어 대문자로 작성하셔야 정상 정답처리됩니다. 또한, 정답을 입력할 때 띄어쓰기 없이 입력해 주세요. "
+				;
+		
+		
+		for (int i = 0; i < text.length(); i++) {
+			System.out.print(text.charAt(i));
+			try {
+				Thread.sleep(60);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} // 1000이 1초. 100이 0.1초
+
+			if (i > 0 && i % 50 == 0) {
+				System.out.println();
+			}
+
+		}System.out.println();
+		System.out.println();
+		
 
 		while (true) {
-			System.out.println("       ★정처기 꽉 붙JAVA★");
+			System.out.println("       ★정처기 꽉 붙 JAVA★");
 			System.out.println("   <<==========메뉴==========>>");
 			System.out.print("1.회원 2.로그인 3.최고점수 확인 4.종료 >>> ");
 			int a = sc.nextInt(); // 메뉴선택입력
