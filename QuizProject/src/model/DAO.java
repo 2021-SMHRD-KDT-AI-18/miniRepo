@@ -150,7 +150,7 @@ public class DAO {
 	public void save(DTO dto) {
 		connection();
 
-		String sql = "INSERT INTO RANK6 VALUES(?,?,?,?)";
+		String sql = "INSERT INTO RANK VALUES(?,?,?,?)";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());
