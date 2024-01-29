@@ -21,9 +21,9 @@ public class QuizMain {
 		int scoreL = 0;
 
 		while (true) {
-			System.out.println("정처기자바");
-			System.out.println("======메뉴=======");
-			System.out.println("1.회원 2.로그인 3.최고점수 확인 4.종료 >>> ");
+			System.out.println("       ★정처기 꽉 붙JAVA★");
+			System.out.println("   <<==========메뉴==========>>");
+			System.out.print("1.회원 2.로그인 3.최고점수 확인 4.종료 >>> ");
 			int a = sc.nextInt(); // 메뉴선택입력
 
 			if (a == 1) { // 회원가입
@@ -48,7 +48,7 @@ public class QuizMain {
 				if (info != null) {
 					System.out.println(info.getNic() + "님 안녕하세요!");
 					System.out.println("난이도를 선택하세요");
-					System.out.println("1.이지 2.하드");
+					System.out.print("1.이지 2.하드 >>");
 					int b = sc.nextInt();
 					if (b == 1) { // 이지모드 게임실행
 						System.out.println("이지모드 게임을 시작합니다");
@@ -83,7 +83,7 @@ public class QuizMain {
 
 						System.out.printf("총 %d문제 중 %d문제를 맞추셨습니다.%n", cnt - 1, correct);
 						System.out.println("틀린문제를 다시 푸시겠습니까?");
-						System.out.println("1.예 2.종료");
+						System.out.print("1.예 2.종료 >>");
 						int c = sc.nextInt();
 						if (c == 1) {
 							System.out.println("오답풀이를 시작합니다.");
@@ -118,7 +118,7 @@ public class QuizMain {
 
 							int num = ran.nextInt(list.size());
 							System.out.println(list.get(num).getQuestion());
-							System.out.println("Q" + cnt + ". 정답 입력 : ");
+							System.out.print("Q" + cnt + ". 정답 입력 : ");
 							String ans = sc.next();
 							if (list.get(num).getAnswer().equals(ans)) {
 								System.out.println("정답입니다");
@@ -136,7 +136,7 @@ public class QuizMain {
 
 						System.out.printf("총 %d문제 중 %d문제를 맞추셨습니다.%n", cnt - 1, correct);
 						System.out.println("틀린문제를 다시 푸시겠습니까?");
-						System.out.println("1.예 2.종료");
+						System.out.print("1.예 2.종료 >>");
 						int c = sc.nextInt();
 						if (c == 1) {
 							System.out.println("오답풀이를 시작합니다.");
@@ -165,12 +165,12 @@ public class QuizMain {
 					System.out.println("등록되지 않은 회원입니다");
 				}
 			} else if (a == 3) {
-				System.out.println("아이디를 입력해주세요");
+				System.out.print("아이디를 입력해주세요 >>");
 				String id = sc.next();
 				System.out.println("최고점수 확인");
 				// 로그인한 사용자의 최고 점수 출력
 				int totalHighestScore = dao.getUserHighestScores(id);
-				System.out.println("총 최고 점수: " + totalHighestScore);
+				System.out.println("총 최고 점수 : " + totalHighestScore);
 
 			} else if (a == 4) {
 				System.out.println("종료합니다.");
