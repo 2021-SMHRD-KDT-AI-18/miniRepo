@@ -13,6 +13,35 @@ public class DAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 
+	public int getUserHighestScores(String userId) {
+	    int highestScoreH = 0;
+	    int highestScoreE = 0;
+
+	    try {
+	        connection();
+
+	        String sql = "SELECT MAX(SCORE_H) AS MAX_SCORE_H, MAX(SCORE_E) AS MAX_SCORE_E FROM RANK6 WHERE USER_ID=? GROUP BY USER_NIC";
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, userId);
+	        rs = psmt.executeQuery();
+
+	        if (rs.next()) {
+	            highestScoreH = rs.getInt("MAX_SCORE_H");
+	            highestScoreE = rs.getInt("MAX_SCORE_E");
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        close();
+	    }
+
+	    System.out.println("이지 모드 최고 점수: " + highestScoreE);
+	    System.out.println("하드 모드 최고 점수: " + highestScoreH);
+
+	    return highestScoreH + highestScoreE;
+	}
+
 	public int join(DTO dto) {
 		int cnt = 0;
 		try {
@@ -117,10 +146,8 @@ public class DAO {
 		}
 	}
 
-	
-	//테이블에 점수 저장.
+	// 테이블에 점수 저장.
 	public void save(DTO dto) {
-		
 		connection();
 
 		String sql = "INSERT INTO RANK6 VALUES(?,?,?,?)";
@@ -130,16 +157,12 @@ public class DAO {
 			psmt.setString(2, dto.getNic());
 			psmt.setInt(3, dto.getRankH());
 			psmt.setInt(4, dto.getRankL());
-			
+
 			psmt.executeUpdate();
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-
 	}
-
-	
 }
