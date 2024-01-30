@@ -36,8 +36,8 @@ public class DAO {
 			close();
 		}
 
-		System.out.println("이지 모드 최고 점수: " + highestScoreE);
-		System.out.println("하드 모드 최고 점수: " + highestScoreH);
+		System.out.println("★ 이지모드 최고 점수 : " + highestScoreE);
+		System.out.println("☆ 하드모드 최고 점수 : " + highestScoreH);
 
 		return highestScoreH + highestScoreE;
 	}
