@@ -114,7 +114,7 @@ public class QuizMain {
 								System.out.println(wlist.get(i).getQuestion());
 								System.out.print("Q" + (i + 1) + ". 정답 입력  :  ");
 								String ans = sc.next();
-								if (wlist.equals(ans)) {
+								if (wlist.get(i).getAnswer().equals(ans)) {
 									System.out.println("◆ 정답입니다. ◆");
 
 								} else {
@@ -171,7 +171,7 @@ public class QuizMain {
 								System.out.println(wlist.get(i).getQuestion());
 								System.out.print("Q" + (i + 1) + ". 정답 입력  :  ");
 								String ans = sc.next();
-								if (wlist.equals(ans)) {
+								if (wlist.get(i).getAnswer().equals(ans)) {
 									System.out.println("◆ 정답입니다. ◆");
 
 								} else {
