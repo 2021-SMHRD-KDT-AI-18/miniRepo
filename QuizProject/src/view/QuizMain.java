@@ -19,8 +19,8 @@ public class QuizMain {
 		
 		Font impactFont = new Font("Impact", Font.PLAIN, 14);
 		
-		String text = "본 프로그램은 정보처리기사시험 학습을 목표로 하여 'BGM'은 일부러 생략하였습니다."
-				+ "    명령어와 관련된 문제는 소문자로 작성하시고, 이외의 정답은  한글 및 영어 대문자로 작성하셔야 정상 정답처리됩니다.  또한,  정답을 입력할 때 띄어쓰기 없이 입력해 주세요. "
+		String text = "본 프로그램은 정보처리기사시험 학습을 목표로 하여 'BGM'은 일부러 생략하였습니다.\n"
+				+ "명령어와 관련된 문제는 소문자로 작성하시고, 이외의 정답은  한글 및 영어 대문자로\n작성하셔야 정상 정답처리됩니다. 또한, 정답을 입력할 때 띄어쓰기 없이 입력해 주세요. "
 				;
 		
 		
@@ -32,10 +32,7 @@ public class QuizMain {
 				e.printStackTrace();
 			} // 1000이 1초. 100이 0.1초
 
-			if (i > 0 && i % 50 == 0) {
-				System.out.println();
-			}
-
+	
 		}System.out.println();
 		System.out.println();
 		
