@@ -119,7 +119,7 @@ public class QuizMain {
 									System.out.println("◆ 정답입니다. ◆");
 
 								} else {
-									System.out.println("◇ 틀렸습니다. ◇");
+									System.out.printf("◇ 틀렸습니다. 정답은 '%s' 입니다. ◇%n",wlist.get(i).getAnswer());
 								}
 								System.out.println();
 							}
@@ -176,7 +176,7 @@ public class QuizMain {
 									System.out.println("◆ 정답입니다. ◆");
 
 								} else {
-									System.out.println("◇ 틀렸습니다. ◇");
+									System.out.printf("◇ 틀렸습니다. 정답은 '%s'입니다. ◇%n",wlist.get(i).getAnswer());
 								}
 								System.out.println();
 							}
