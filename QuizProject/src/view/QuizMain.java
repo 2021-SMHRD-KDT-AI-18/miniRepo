@@ -39,7 +39,7 @@ public class QuizMain {
 		
 
 		while (true) {
-			System.out.println("         ★정처기 꽉 붙 JAVA★");
+			System.out.println("                                 ★정처기 꽉 붙 JAVA★");
 			System.out.println("=================메뉴==================");
 			System.out.print("1.회원가입 2.로그인 3.최고점수확인 4.종료 >>> ");
 			int a = sc.nextInt(); // 메뉴선택입력
